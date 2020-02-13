@@ -9,7 +9,7 @@ x.L76X_Send_Command(x.SET_NMEA_BAUDRATE_115200)
 time.sleep(2)
 x.L76X_Set_Baudrate(115200)
 
-x.L76X_Send_Command(x.SET_POS_FIX);
+x.L76X_Send_Command(x.SET_POS_FIX_100MS);
 
 #Set output message
 x.L76X_Send_Command(x.SET_NMEA_OUTPUT);
@@ -32,7 +32,7 @@ while(1):
         
         print 'Time %d:'%x.Time_H,
         print '%d:'%x.Time_M,
-        print '%.3f'%x.Time_S
+        print '%.2f'%x.Time_S
         
         print 'Lat = %f'%x.Lat,
         print 'Lon = %f'%x.Lon,       
@@ -46,7 +46,7 @@ while(1):
         print 'ALon = %f'%ALon,       
         print 'AAlt = %f'%AAlt
 
-        f.write('%f'%x.Lat + ' %f'%x.Lon + ' %f:'%x.Time_H + '%f:'%x.Time_M + '%f'%x.Time_S + '\n')
+        f.write('%f'%x.Lat + ' %f'%x.Lon + ' %0.f:'%x.Time_H + '%0.f:'%x.Time_M + '%.2f'%x.Time_S + '\n')
         
         i = i+1
 

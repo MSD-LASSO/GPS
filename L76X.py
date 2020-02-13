@@ -6,13 +6,6 @@ import time
 Temp = '0123456789ABCDEF*'
 BUFFSIZE = 1100
 
-
-pi = 3.14159265358979324
-a = 6378245.0
-ee = 0.00669342162296594323
-x_pi = 3.14159265358979324 * 3000.0 / 180.0
-
-
 class L76X(object):
     Lon = 0.0
     Lat = 0.0
@@ -122,8 +115,8 @@ class L76X(object):
 
                     time = float(split[1])
 
-                    self.Time_H = time/10000
-                    self.Time_M = time/100%100
+                    self.Time_H = time//10000
+                    self.Time_M = time//100%100
                     self.Time_S = time%100
 
                     self.Lat = float(split[2]) / 100.0
