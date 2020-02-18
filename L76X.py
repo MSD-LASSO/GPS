@@ -104,34 +104,29 @@ class L76X(object):
     
             print line
 
-            if(split[0] == "$GNGGA" or split[0] == "$GPGGA"):
-               if (len(split) >= 7):
-
+            if(len(split) >=11):
+                if(split[0] == "$GNGGA" or split[0] == "$GPGGA"):
                     if(split[6] == "1"):
-                        self.Status = 1
-                    else:
-                        self.Status = 0
-                        continue
+                        self.Status = split[6]
 
-                    time = float(split[1])
+                        time = float(split[1])
 
-                    self.Time_H = time/10000
-                    self.Time_M = time/100%100
-                    self.Time_S = time%100
+                        self.Time_H = time//10000
+                        self.Time_M = time//100%100
+                        self.Time_S = time%100
 
-                    self.Lat = float(split[2]) / 100.0
-                    self.Lat = (self.Lat // 1) + ((self.Lat%1/.01)/60);
+                        self.Lat = float(split[2]) / 100.0
+                        self.Lat = (self.Lat // 1) + ((self.Lat%1/.01)/60);
                     
-                    if(split[3] == 'S'):
-                        self.Lat = self.Lat*-1
+                        self.Lon = float(split[4]) / 100.0
+                        self.Lon = (self.Lon // 1) + ((self.Lon%1/.01)/60);
+                
+                        if(split[3] == 'S'):
+                            self.Lat = self.Lat*-1
                     
-                    self.Lon = float(split[4]) / 100.0
-                    self.Lon = (self.Lon // 1) + ((self.Lon%1/.01)/60);
-                    
-                    if(split[5] == 'W'):
-                        self.Lon = self.Lon*-1
-                    
-                    if(len(split) >= 11):
+                        if(split[5] == 'W'):
+                            self.Lon = self.Lon*-1
+                        
                         self.Alt = float(split[9])
 
     def L76X_Set_Baudrate(self, Baudrate):
