@@ -51,7 +51,7 @@ while(1 == 1):
         print 'ALon = %f'%ALon,       
         print 'AAlt = %f'%AAlt
 
-        f.write('%f'%x.Lat + ' %f'%x.Lon + ' %0.f:'%x.Time_H + '%0.f:'%x.Time_M + '%.2f'%x.Time_S + '\n')
+        f.write('%f'%x.Lat + ' %f'%x.Lon + ' %f'%x.Alt + ' %0.f:'%x.Time_H + '%0.f:'%x.Time_M + '%.2f'%x.Time_S + '\n')
         
         i = i+1 
 
