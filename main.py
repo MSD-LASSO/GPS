@@ -1,6 +1,7 @@
 import L76X
 import time
 import math
+import os
 
 # try:
 x=L76X.L76X()
@@ -34,10 +35,16 @@ while(1 == 1):
     print '\n'
     if(x.Status == "1"):
         print 'Position aquired'
-    
-        print 'Time %d:'%x.Time_H,
-        print '%d:'%x.Time_M,
-        print '%.2f'%x.Time_S
+        
+        print "Date: " + x.Date    
+        #print 'Date %d:'%x.Date_M,
+        #print '%d:'%x.Date_D,
+        #print '%d'%x.Date_Y    
+
+        print "Time: " + x.Time
+        #print 'Time %d:'%x.Time_H,
+        #print '%d:'%x.Time_M,
+        #print '%.2f'%x.Time_S
     
         print 'Lat = %f'%x.Lat,
         print 'Lon = %f'%x.Lon,       
@@ -51,6 +58,7 @@ while(1 == 1):
         print 'ALon = %f'%ALon,       
         print 'AAlt = %f'%AAlt
 
+        os.system('sudo timedatectl set-time \'' + x.Date + ' ' + x.Time+'\'')
         f.write('%f'%x.Lat + ' %f'%x.Lon + ' %f'%x.Alt + ' %0.f:'%x.Time_H + '%0.f:'%x.Time_M + '%.2f'%x.Time_S + '\n')
         
         i = i+1 

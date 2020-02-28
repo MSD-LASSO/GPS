@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import config
 import math
 import time
+import os
 
 Temp = '0123456789ABCDEF*'
 BUFFSIZE = 1100
@@ -11,9 +12,14 @@ class L76X(object):
     Lat = 0.0
     Lon_area = 'E'
     Lat_area = 'W'
+    Date_M = 0
+    Date_D = 0
+    Date_Y = 0
     Time_H = 0
     Time_M = 0
     Time_S = 0
+    Time = ""
+    Date = ""
     Status = 0
     
     GPS_Lon = 0
@@ -109,12 +115,6 @@ class L76X(object):
                     if(split[6] == "1"):
                         self.Status = split[6]
 
-                        time = float(split[1])
-
-                        self.Time_H = time//10000
-                        self.Time_M = time//100%100
-                        self.Time_S = time%100
-
                         self.Lat = float(split[2]) / 100.0
                         self.Lat = (self.Lat // 1) + ((self.Lat%1/.01)/60);
                     
@@ -128,6 +128,24 @@ class L76X(object):
                             self.Lon = self.Lon*-1
                         
                         self.Alt = float(split[9])
+                        
+                if(split[0] == "$GNRMC" or split[0] == "$GPRMC"):
+                    if(split[2] == "A"):
+                        time = float(split[1])
+                        self.Time_H = int(time//10000)
+                        self.Time_M = int(time//100%100)
+                        self.Time_S = round(time%100,3)
+                        
+                        self.Time = str(self.Time_H)+":"+str(self.Time_M)+":"+str(self.Time_S)
+                        
+                        date = float(split[9])
+                        self.Date_M = int(date%10000//100)
+                        self.Date_D = int(date//10000)
+                        self.Date_Y = int(2000 + date%100)
+                        
+                        self.Date = str(self.Date_Y)+"-"+str(self.Date_M)+"-"+str(self.Date_D)
+                        
+                        #os.system('sudo timedatectl set-time \'' + self.Date + ' ' + self.Time+'\'')
 
     def L76X_Set_Baudrate(self, Baudrate):
         self.config.Uart_Set_Baudrate(Baudrate)
