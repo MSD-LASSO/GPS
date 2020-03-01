@@ -91,6 +91,8 @@ while (1 == 1):
 
     # Compare current time and the set times.
     if currentTime>=Date[i]:
+        print('Scheduled Time: '+str(Date[i]))
+
         String = datetime.now()
         print('Before Function Call: '+str(String))
 
@@ -107,7 +109,8 @@ while (1 == 1):
 
         String = datetime.now()
         print('After Function Call: '+str(String))
-
+        
+        print('\n')
         i+=1
 
     else:
