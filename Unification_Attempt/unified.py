@@ -35,6 +35,8 @@ AAlt = 0.000
 # Read the times from the input text file.
 Date=[]
 Doppler=[]
+
+#IMPORTANT: Cannot have extra white space at end of InputTimes.txt. It will throw "index out of range" error
 fileName='InputTimes.txt'
 import csv
 # with open('/home/pi/GIT_GNU/GNU/GNU_code/Record_ref/Dummy.txt') as f:
