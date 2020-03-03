@@ -52,7 +52,7 @@ with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
 
 i=0
 while (1 == 1):
-    print(str(datetime.now()))
+
     x.L76X_Get()
     # print('\n')
 
@@ -94,6 +94,7 @@ while (1 == 1):
         currentTime=datetime.now()
 
     # Compare current time and the set times.
+    print(currentTime)
     if currentTime>=Date[i]:
         # print('Scheduled Time: '+str(Date[i]))
 
