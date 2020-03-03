@@ -64,7 +64,7 @@ while (1 == 1):
         # Str='2020-3-1'+'T'+'20:17:2.5'
         currentTime = datetime.strptime(Str, "%Y-%m-%dT%H:%M:%S.%f")
 
-        currentTime=datetime.now()
+        # currentTime=datetime.now()
 
         # print('Position aquired')
 
@@ -95,26 +95,34 @@ while (1 == 1):
 
     # Compare current time and the set times.
     if currentTime>=Date[i]:
-        print('Scheduled Time: '+str(Date[i]))
+        # print('Scheduled Time: '+str(Date[i]))
 
-        String = datetime.now()
-        print('Before Function Call: '+str(String))
+        # String = datetime.now()
+        # print('Before Function Call: '+str(String))
 
         ######################### Start Function Call #########################
         # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+str(int(round(Doppler*1e6)))+' --samp-rate=2000000 --center-freq=437000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
         # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+'162400000'+' --samp-rate=2000000 --center-freq=162000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
         # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+'97900000'+' --samp-rate=2000000 --center-freq=97000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
+        if Doppler >= 0:
+            # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+str(int(round(Doppler*1e6)))+' --samp-rate=2000000 --center-freq=437000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
+            String = 'python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq=' + '437200000' + ' --samp-rate=2000000 --center-freq=437000000 --num-samples=1200000000 --file-loc="/home/pi/Documents/Time' + str(
+                datetime.now()).replace(" ", "_").replace(":", "_").replace(".", "_") + '"'
+        else:
+            # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+'162400000'+' --samp-rate=2000000 --center-freq=162000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
+            String = 'python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq=' + '97900000' + ' --samp-rate=2000000 --center-freq=97000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time' + str(
+                datetime.now()).replace(" ", "_").replace(":", "_").replace(".", "_") + '"'
 
-        time.sleep(10)
+        # time.sleep(10)
         # String="date >> /home/pi/Documents/TimingTest.txt 2>&1"
-        # os.system(String)
+        os.system(String)
         ######################### End Function Call #########################
 
 
-        String = datetime.now()
-        print('After Function Call: '+str(String))
+        # String = datetime.now()
+        # print('After Function Call: '+str(String))
 
-        print('\n')
+        # print('\n')
         i+=1
 
         if i>=len(Date):
