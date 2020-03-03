@@ -53,7 +53,10 @@ with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
 i=0
 while (1 == 1):
 
-    x.L76X_Get()
+    try:
+        x.L76X_Get()
+    except:
+        x.Status="0"
     # print('\n')
 
     #Get the current time to the best of our ability.
