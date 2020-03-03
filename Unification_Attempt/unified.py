@@ -64,6 +64,8 @@ while (1 == 1):
         # Str='2020-3-1'+'T'+'20:17:2.5'
         currentTime = datetime.strptime(Str, "%Y-%m-%dT%H:%M:%S.%f")
 
+        currentTime=datetime.now()
+
         # print('Position aquired')
 
         # print("Date: " + x.Date)
@@ -115,7 +117,7 @@ while (1 == 1):
         print('\n')
         i+=1
 
-        if i> len(Date):
+        if i>=len(Date):
             print("All scheduled Times Completed")
             break
     else:
