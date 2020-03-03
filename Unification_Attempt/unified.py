@@ -52,7 +52,7 @@ with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
 
 i=0
 while (1 == 1):
-
+    print(str(datetime.now()))
     x.L76X_Get()
     # print('\n')
 
