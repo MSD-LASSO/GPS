@@ -53,7 +53,7 @@ with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
         os.system("sudo echo "+str(h1)+" >> /home/pi/Documents/debugger.txt 2>&1")
 
 i=0
-while (1 == 1):
+while (i<len(Date)):
 
     try:
         x.L76X_Get()
@@ -136,11 +136,14 @@ while (1 == 1):
         i+=1
 
         if i>=len(Date):
-            print("All scheduled Times Completed")
+            # print("All scheduled Times Completed")
             break
     else:
         # Time has not lined up yet, continue.
         continue
+
+os.system("sudo echo All Scheduled Times Completed >> /home/pi/Documents/debugger.txt 2>&1")
+print("All scheduled Times Completed")
 
 
 
