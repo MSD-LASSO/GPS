@@ -4,6 +4,7 @@ from datetime import datetime, date
 import math
 import os
 
+os.system("sudo echo IRan! >> Debugger.txt 2>&1")
 # try:
 x = L76X.L76X()
 x.L76X_Set_Baudrate(9600)
