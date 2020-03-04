@@ -49,6 +49,7 @@ with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
         Date.append(h1)
         Doppler.append(float(Str[1]))
         print("Before Schedule utc: " + str(h1))
+        os.system("sudo echo "+str(h1)+" >> Debugger.txt 2>&1")
 
 i=0
 while (1 == 1):
@@ -98,6 +99,7 @@ while (1 == 1):
 
     # Compare current time and the set times.
     print(currentTime)
+    os.system("sudo echo " + str(currentTime) + " >> Debugger.txt 2>&1")
     if currentTime>=Date[i]:
         # print('Scheduled Time: '+str(Date[i]))
 
@@ -118,6 +120,7 @@ while (1 == 1):
                 currentTime).replace(" ", "_").replace(":", "_").replace(".", "_") + '"'
 
         # time.sleep(10)
+        # String="date >> /home/pi/Documents/debugger.txt 2>&1"
         # String="date >> /home/pi/Documents/TimingTest.txt 2>&1"
         print(Doppler)
         print(String)
