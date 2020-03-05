@@ -23,7 +23,7 @@ def createText(startTime,interval,numEntries):
 def argument_parser():
     parser = OptionParser(usage="%prog: [options]")
     parser.add_option(
-        "", "--startTime", dest="startTime", type="string", default=str(dt.now().date())+'T'+str((dt.now()+bigDT.timedelta(days=1,hours=5,minutes=5)).time()),
+        "", "--startTime", dest="startTime", type="string", default=str(dt.now().date())+'T'+str((dt.now()+bigDT.timedelta(hours=5,minutes=5)).time()),
         help="Set DateTime in form 'YY-MM-DDTHH-MM-SS.fff' [default=%default]")
     parser.add_option(
         "", "--interval", dest="interval", type="float", default=20,
