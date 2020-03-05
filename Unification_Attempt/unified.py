@@ -58,6 +58,7 @@ while (i<len(Date)):
     try:
         x.L76X_Get()
     except:
+        os.system("sudo echo Failed To Get GPS >> /home/pi/Documents/debugger.txt 2>&1")
         x.Status="0"
     # print('\n')
 
