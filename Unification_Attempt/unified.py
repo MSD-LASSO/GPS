@@ -113,7 +113,7 @@ while (i<len(Date)):
         # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+'162400000'+' --samp-rate=2000000 --center-freq=162000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
         # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+'97900000'+' --samp-rate=2000000 --center-freq=97000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
         if Doppler[i] > 0:
-            String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+str(int(round(Doppler[i]*1e6)))+' --samp-rate=2000000 --center-freq=437000000 --num-samples=1800000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
+            String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+str(int(round(Doppler[i]*1e6)))+' --samp-rate=2000000 --center-freq=437000000 --num-samples=1800000000 --file-loc="/home/pi/Documents/Time'+str(currentTime).replace(" ","_").replace(":","_").replace(".","_")+'"'
             # String = 'python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq=' + '437200000' + ' --samp-rate=2000000 --center-freq=437000000 --num-samples=12000000 --file-loc="/home/pi/Documents/Time' + str(
             #     currentTime).replace(" ", "_").replace(":", "_").replace(".", "_") + '"'
         else:
