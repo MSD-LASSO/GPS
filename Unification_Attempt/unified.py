@@ -50,7 +50,7 @@ with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
         Date.append(h1)
         Doppler.append(float(Str[1]))
         print("Before Schedule utc: " + str(h1))
-        os.system("sudo echo "+str(h1)+" >> /home/pi/Documents/debugger.txt 2>&1")
+        os.system("sudo echo "+"Before Schedule utc: " + str(h1)+" >> /home/pi/Documents/debugger.txt 2>&1")
 
 i=0
 while (i<len(Date)):
@@ -63,6 +63,7 @@ while (i<len(Date)):
 
     #Get the current time to the best of our ability.
     if (x.Status == "1"):
+        GPS=True;
         # 2020-3-1
         # 20:17:2.5
         Str=x.Date+'T'+x.Time
@@ -95,12 +96,12 @@ while (i<len(Date)):
 
     else:
         # print('No positioning')
-
+        GPS=False
         currentTime=datetime.now()
 
     # Compare current time and the set times.
     print(currentTime)
-    os.system("sudo echo " + str(currentTime) + " >> /home/pi/Documents/debugger.txt 2>&1")
+    os.system("sudo echo Using GPS "+ str(GPS)+' Time '+ str(currentTime) + " >> /home/pi/Documents/debugger.txt 2>&1")
     if currentTime>=Date[i]:
         # print('Scheduled Time: '+str(Date[i]))
 
@@ -117,7 +118,7 @@ while (i<len(Date)):
             #     currentTime).replace(" ", "_").replace(":", "_").replace(".", "_") + '"'
         else:
             # String='python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq='+'162400000'+' --samp-rate=2000000 --center-freq=162000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time'+str(datetime.now()).replace(" ","_").replace(":","_").replace(".","_")+'"'
-            String = 'python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq=' + '97900000' + ' --samp-rate=2000000 --center-freq=97000000 --num-samples=10000000 --file-loc="/home/pi/Documents/Time' + str(
+            String = 'python /home/pi/GIT_GNU/GNU/GNU_code/Record_ref/record_ref.py --channel-freq=' + '97900000' + ' --samp-rate=2000000 --center-freq=97000000 --num-samples=2000000 --file-loc="/home/pi/Documents/Time' + str(
                 currentTime).replace(" ", "_").replace(":", "_").replace(".", "_") + '"'
 
         # time.sleep(10)
