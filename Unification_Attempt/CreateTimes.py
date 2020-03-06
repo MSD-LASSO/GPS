@@ -39,7 +39,7 @@ def createText(startTime,delay,numEntries,oscillate,sampleLength):
 
 def writeToText(f,dateObj,freq,sampleLength):
     # f.write(str(dateObj.date()) + 'T' + str(dateObj.time()) + '     ' + format(freq,'.12f') + '     ' + format(sampleLength,'.12f') + '\n')
-    f.write(str(dateObj.date()) + 'T' + str(dateObj.time()) + '     ' + '{: >12f}'.format(freq) + '     ' + '{: >12f}'.format(sampleLength) + '\n')
+    f.write(str(dateObj.date()) + 'T' + str(dateObj.time()) + ',' + '{: >12f}'.format(freq) + ',' + '{: >12f}'.format(sampleLength) + '\n')
 
 
 def argument_parser():

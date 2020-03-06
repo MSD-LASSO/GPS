@@ -73,9 +73,9 @@ fileName='InputTimes.txt'
 import csv
 # with open('/home/pi/GIT_GNU/GNU/GNU_code/Record_ref/Dummy.txt') as f:
 with open('/home/pi/GPS/Unification_Attempt/'+fileName) as f:
-    reader=csv.reader(f,delimiter='\t')
+    reader=csv.reader(f,delimiter='\n')
     for row in reader:
-        Str=str.split(row[0],"    ")
+        Str=str.split(row[0],",")
         # print("Raw String: "+Str[0])
         h1=datetime.strptime(Str[0],"%Y-%m-%dT%H:%M:%S.%f")
         Date.append(h1)
