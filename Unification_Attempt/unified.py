@@ -15,12 +15,14 @@ def getCurrentTime(GPShandler):
 
     #Get the current time to the best of our ability.
     if (status==0):
-        GPS=True
-        # 2020-3-1
-        # 20:17:2.5
-        Str=x.Date+'T'+x.Time
-        # Str='2020-3-1'+'T'+'20:17:2.5'
-        currentTime = datetime.strptime(Str, "%Y-%m-%dT%H:%M:%S.%f")
+        # GPS=True
+        # # 2020-3-1
+        # # 20:17:2.5
+        # Str=x.Date+'T'+x.Time
+        # # Str='2020-3-1'+'T'+'20:17:2.5'
+        # currentTime = datetime.strptime(Str, "%Y-%m-%dT%H:%M:%S.%f")
+        GPS=False
+        currentTime=datetime.now()
 
     else:
         # print('No positioning')
