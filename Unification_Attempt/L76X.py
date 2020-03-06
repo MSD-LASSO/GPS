@@ -90,7 +90,7 @@ class L76X(object):
        
     def L76X_Get(self):
         data = self.config.Uart_ReceiveString(BUFFSIZE)
-        print(data)
+        # print(data) #All the strings of stuff.
 
         string = ""
 
