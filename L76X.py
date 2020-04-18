@@ -109,13 +109,15 @@ class L76X(object):
             split = line.split(',')
     
             print line
-
+            
+            #Makes sure full string is downloaded before parsing it
             if(len(split) >=11):
+                #GNGGA used for gps position
                 if(split[0] == "$GNGGA" or split[0] == "$GPGGA"):
                     if(split[6] == "1"):
                         self.Status = split[6]
 
-                        self.Lat = float(split[2]) / 100.0
+                        self.Lat = float(split[2]) / 100.0                        
                         self.Lat = (self.Lat // 1) + ((self.Lat%1/.01)/60);
                     
                         self.Lon = float(split[4]) / 100.0
@@ -128,7 +130,7 @@ class L76X(object):
                             self.Lon = self.Lon*-1
                         
                         self.Alt = float(split[9])
-                        
+                #GNRMC used for time data
                 if(split[0] == "$GNRMC" or split[0] == "$GPRMC"):
                     if(split[2] == "A"):
                         time = float(split[1])
